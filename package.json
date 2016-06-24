@@ -5,7 +5,9 @@
   "main": "index.js",
   "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "start": "node server/index.js",
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "build-production": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
   },
@@ -27,11 +29,16 @@
   },
   "dependencies": {
     "babel-preset-stage-1": "^6.1.18",
+    "chart.js": "^2.1.6",
+    "express": "^4.14.0",
     "lodash": "^3.10.1",
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3",
-    "react-redux": "^4.0.0",
-    "react-router": "^2.0.1",
-    "redux": "^3.0.4"
+    "material-ui": "^0.15.0",
+    "react": "^15.1.0",
+    "react-chartjs": "github:jhudson8/react-chartjs#chartjs-v2",
+    "react-dom": "^15.1.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.4.1",
+    "react-tap-event-plugin": "^1.0.0",
+    "redux": "^3.5.2"
   }
 }

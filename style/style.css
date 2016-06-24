@@ -1,0 +1,40 @@
+@media (max-width: 789px) {
+  .navigation-bar {
+    flex-direction: column;
+    justify-content: center !important;
+    height: 65px !important;
+  }
+
+  .about-intro {
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 50px !important;
+  }
+
+  .avatar-social {
+    margin-right: 0 !important;
+    margin-bottom: 20px;
+  }
+
+  .profile {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .work-experience {
+    flex-direction: column;
+    padding: 20px;
+    margin-top: -40px !important;
+  }
+
+}
+
+a, a:hover, a:visited, a:active {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+[type="button"] {
+  -webkit-appearance: none !important;
+}
