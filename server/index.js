@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 
 const server = http.createServer(app);
+const port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/../public'));
 app.use('/style', express.static(__dirname + '/../style'));
@@ -15,4 +16,4 @@ app.get('*', (req, res) => {
 });
 
 
-server.listen(3000);
+server.listen(port);

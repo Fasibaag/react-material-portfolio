@@ -28,6 +28,15 @@
     margin-top: -40px !important;
   }
 
+  .about-website-p, .about-website-a {
+    font-size: 14px !important;
+    line-height: 18px !important;
+  }
+
+  .footer-content {
+    padding-top: 0px !important;
+  }
+
 }
 
 a, a:hover, a:visited, a:active {

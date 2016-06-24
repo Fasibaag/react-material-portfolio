@@ -45,7 +45,7 @@ class NavigationBar extends Component {
           <Link to='/'><span style={styles.title}>Jordi Talens</span></Link>
           <div>
             <Link to='/resume'><span style={styles.navigationLinks}>RESUME</span></Link>
-            <span style={styles.navigationLinks2}>PROJECTS</span>
+            <Link to='/projects'><span style={styles.navigationLinks2}>PROJECTS</span></Link>
           </div>
         </nav>
       </Paper>
