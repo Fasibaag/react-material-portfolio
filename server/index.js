@@ -14,5 +14,4 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(path.join(__dirname + '/../public/index.html')));
 });
 
-
 server.listen(port);
