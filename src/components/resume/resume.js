@@ -3,6 +3,7 @@ import Profile from './profile';
 import WorkExperience from './work_experience';
 import Education from './education';
 import Skills from './skills';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const styles = {
   resume: {
@@ -21,7 +22,8 @@ const styles = {
   contactData: {
     'fontFamily': '"ff-tisa-web-pro", Palatino, " Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif',
     'letterSpacing': '2px',
-    'fontSize': '0.625rem'
+    'fontSize': '0.625rem',
+    'marginBottom': '5px'
   }
 };
 
@@ -35,8 +37,12 @@ class Resume extends Component {
             TALENSJR@GMAIL.COM | +34 630 577 028
           </span>
           <span style={styles.contactData}>
+            JORDITALENS.COM | JORDITALENS.ES
+          </span>
+          <span style={styles.contactData}>
             VALENCIA, SPAIN
           </span>
+          <a href='/download_cv'><RaisedButton label='DOWNLOAD AS PDF'/></a>
         </div>
         <Profile />
         <WorkExperience />
