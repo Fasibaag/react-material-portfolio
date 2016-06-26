@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Paper from 'material-ui/Paper';
 import FontIcon from 'material-ui/FontIcon';
 
@@ -44,10 +45,11 @@ const styles = {
 
 class Footer extends Component {
   render() {
+    const {contact, aboutWebsite, aboutWebsiteText} = this.props.lang.footer;
     return (
       <Paper className="footer" style={styles.footer}>
         <div style={styles.footerContent} className='footer-content'>
-          <h2 style={styles.aboutWebsite}>Contact</h2>
+          <h2 style={styles.aboutWebsite}>{contact}</h2>
           <span>
             <a
               href='mailto:talensjr@gmail.com'
@@ -59,15 +61,9 @@ class Footer extends Component {
             <span style={styles.aboutWebsiteA} className='about-website-a'>&nbsp;+34 630 577 028</span>
           </span>
           <br />
-          <h2 style={styles.aboutWebsite}>About this Website</h2>
+          <h2 style={styles.aboutWebsite}>{aboutWebsite}</h2>
           <p style={styles.aboutWebsiteP} className='about-website-p'>
-            This website has been designed and coded by me from the ground up,&nbsp;
-            using awesome&nbsp;
-            <a href='https://facebook.github.io/react/' target='_blank'>ReactJS</a>/
-            <a href='https://github.com/reactjs/redux' target='_blank'>Redux</a> and JavaScript&nbsp;
-            <a href='https://babeljs.io/' target='_blank'>Babel/ES6</a> ecosystem, all bundled using&nbsp;
-            <a href='https://webpack.github.io/' target='_blank'>Webpack</a> and hosted on&nbsp;
-            <a href='https://www.heroku.com/home' target='_blank'>Heroku</a>.
+            {aboutWebsiteText}
           </p>
         </div>
       </Paper>
@@ -75,4 +71,10 @@ class Footer extends Component {
   }
 }
 
-export default Footer;
+const mapStateToProps = (state) => {
+  return {
+    lang: state.lang
+  };
+};
+
+export default connect(mapStateToProps)(Footer);

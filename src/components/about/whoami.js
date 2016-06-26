@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 const styles = {
   whoami: {
@@ -23,14 +24,13 @@ const styles = {
 
 class Whoami extends Component {
   render() {
+    const {whoamiHeading, whoami} = this.props.lang.about;
     return (
       <div style={styles.whoami}>
         <div>
-          <h3 style={styles.whoamiHeading}>about me</h3>
+          <h3 style={styles.whoamiHeading}>{whoamiHeading}</h3>
           <p style={styles.whoamiP}>
-            I've been coding as a freelancer for more than 4 years, and I have always been discovering and learning
-            the newest and coolest JavaScript tools and frameworks, always trying to be better. I like to code
-            as perfect as I can, both in performance and beauty of my code.
+            {whoami}
           </p>
         </div>
       </div>
@@ -38,4 +38,10 @@ class Whoami extends Component {
   }
 }
 
-export default Whoami;
+const mapStateToProps = (state) => {
+  return {
+    lang: state.lang
+  };
+};
+
+export default connect(mapStateToProps)(Whoami);

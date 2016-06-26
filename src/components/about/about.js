@@ -8,18 +8,15 @@ const styles = {
   'about': {
     'maxWidth': '860px',
     'margin': 'auto auto'
-  },
-  'divider': {
-
   }
 };
 
 export default () => (
   <div style={styles.about}>
     <AboutIntro />
-    <Divider style={styles.divider}/>
+    <Divider/>
     <Whoami />
-    <Divider style={styles.divider}/>
+    <Divider/>
     <Skills />
   </div>
 );

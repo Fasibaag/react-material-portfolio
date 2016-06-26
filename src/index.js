@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
+import {setEnglishLang, setSpanishLang} from './actions';
 
 import App from './components/app';
 import About from './components/about/about';
@@ -13,9 +14,15 @@ import Projects from './components/projects/projects';
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
+const store = createStoreWithMiddleware(reducers);
+if (navigator.language.indexOf('es') > -1) {
+  store.dispatch(setSpanishLang());
+} else {
+  store.dispatch(setEnglishLang());
+}
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>
     <Router history={browserHistory}>
       <Route path='/' component={App}>
         <IndexRoute component={About} />

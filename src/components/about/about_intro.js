@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Paper from 'material-ui/Paper';
 import FontIcon from 'material-ui/FontIcon';
 
@@ -51,6 +52,7 @@ const styles = {
 
 class AboutIntro extends Component {
   render() {
+    const {shortDescription, shortSecondDescription} = this.props.lang.about;
     return (
       <div style={styles.aboutIntro} className='about-intro'>
         <div style={styles.avatarSocial} className='avatar-social'>
@@ -63,12 +65,18 @@ class AboutIntro extends Component {
           </div>
         </div>
         <div style={styles.descriptions}>
-          <p style={styles.shortDescription}>I'm a FullStack JavaScript developer, specialized on ReactJS, from Valencia, Spain</p>
-          <p style={styles.shortSecondDescription}>I also know how to structure things with HTML, make them a bit nicer using CSS, share code with GitHub, and compile and bundle my projects with Webpack</p>
+          <p style={styles.shortDescription}>{shortDescription}</p>
+          <p style={styles.shortSecondDescription}>{shortSecondDescription}</p>
         </div>
       </div>
     );
   }
 }
 
-export default AboutIntro;
+const mapStateToProps = (state) => {
+  return {
+    lang: state.lang
+  };
+};
+
+export default connect(mapStateToProps)(AboutIntro);
