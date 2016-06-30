@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Profile from './profile';
 import WorkExperience from './work_experience';
 import Education from './education';
@@ -29,6 +30,7 @@ const styles = {
 
 class Resume extends Component {
   render() {
+    const {download} = this.props.lang.resume;
     return (
       <div style={styles.resume}>
         <div style={styles.resumeHeadingContent}>
@@ -42,7 +44,7 @@ class Resume extends Component {
           <span style={styles.contactData}>
             VALENCIA, SPAIN
           </span>
-          <a href='/download_cv'><RaisedButton label='DOWNLOAD AS PDF'/></a>
+          <a href='/download_cv'><RaisedButton label={download}/></a>
         </div>
         <Profile />
         <WorkExperience />
@@ -53,4 +55,8 @@ class Resume extends Component {
   }
 }
 
-export default Resume;
+const mapStateToProps = (state) => ({
+  lang: state.lang
+});
+
+export default connect(mapStateToProps)(Resume);

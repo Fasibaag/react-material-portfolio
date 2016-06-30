@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Jobs from './jobs';
 import Divider from 'material-ui/Divider';
 
@@ -23,9 +24,10 @@ const styles = {
 
 class WorkExperience extends Component {
   render() {
+    const {workExperienceHeading} = this.props.lang.resume;
     return (
       <div style={styles.workExperience} className='work-experience'>
-        <h3 style={styles.workExperienceHeading}>WORK EXPERIENCE</h3>
+        <h3 style={styles.workExperienceHeading}>{workExperienceHeading}</h3>
         <div style={styles.job}>
           <Jobs />
           <Divider />
@@ -35,4 +37,8 @@ class WorkExperience extends Component {
   }
 }
 
-export default WorkExperience;
+const mapStateToProps = state => ({
+  lang: state.lang
+});
+
+export default connect(mapStateToProps)(WorkExperience);

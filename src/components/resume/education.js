@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Divider from 'material-ui/Divider';
 import EducationTitle from './education_title';
 
@@ -23,9 +24,10 @@ const styles = {
 
 class Education extends Component {
   render() {
+    const {education} = this.props.lang.resume;
     return (
       <div style={styles.education} className='work-experience'>
-        <h3 style={styles.educationHeading}>EDUCATION</h3>
+        <h3 style={styles.educationHeading}>{education}</h3>
         <div style={styles.educationTitle}>
           <EducationTitle />
           <Divider />
@@ -35,4 +37,8 @@ class Education extends Component {
   }
 }
 
-export default Education;
+const mapStateToProps = state => ({
+  lang: state.lang
+});
+
+export default connect(mapStateToProps)(Education);

@@ -5,7 +5,7 @@ import FontIcon from 'material-ui/FontIcon';
 
 const styles = {
   footer: {
-    'height': '200px',
+    'minHeight': '240px',
     'backgroundColor': '#F5F5F5',
     'marginTop': '40px'
   },

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 const styles = {
   jobHeading: {
@@ -19,31 +20,33 @@ const styles = {
 
 class Jobs extends Component {
   render() {
+    const {present, hinojosaText, policeDepartmentHeading, policeDepartmentText, freelancerText} = this.props.lang.jobs;
     return (
       <div>
         <h4 style={styles.jobHeading}>HINOJOSA S.A.</h4>
         <span style={styles.jobRole}>FULL-STACK DEVELOPER | MAY 10 - DEC 10</span>
         <p style={styles.jobText}>
-          Develop a web application for the commercials of the company,
-          to keep track of who they offered which product and the acceptance of it.
+          {hinojosaText}
         </p>
 
-        <h4 style={styles.jobHeading}>POLICE DEPARTMENT</h4>
+        <h4 style={styles.jobHeading}>{policeDepartmentHeading}</h4>
         <span style={styles.jobRole}>FULL-STACK DEVELOPER | JUN 12 - AUG 12</span>
         <p style={styles.jobText}>
-          Fix bugs and develop new features to an internal application
-          for the police department management and administration.
+          {policeDepartmentText}
         </p>
 
         <h4 style={styles.jobHeading}>FREELANCER</h4>
-        <span style={styles.jobRole}>FULL-STACK DEVELOPER | OCT 12 - PRESENT</span>
+        <span style={styles.jobRole}>FULL-STACK DEVELOPER | OCT 12 - {present}</span>
         <p style={styles.jobText}>
-          Build web applications with the newest technologies on the market,
-          on top of JavaScript awesome coding language.
+          {freelancerText}
         </p>
       </div>
     );
   }
 }
 
-export default Jobs;
+const mapStateToProps = state => ({
+  lang: state.lang
+});
+
+export default connect(mapStateToProps)(Jobs);

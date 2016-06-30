@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 const styles = {
   educationHeading: {
@@ -19,40 +20,47 @@ const styles = {
 
 class EducationTitle extends Component {
   render() {
+    const {computerScienceHeading, computerScienceText,
+       reactReduxCourse, advancedReactReduxCourse,
+       completeReactCourse, reactNativeCourse, coursing} = this.props.lang.education;
     return (
       <div>
-        <h4 style={styles.educationHeading}>COMPUTER SCIENCE</h4>
+        <h4 style={styles.educationHeading}>{computerScienceHeading}</h4>
         <span style={styles.educationRole}>UPV | SET 06 - JUN 10</span>
         <p style={styles.educationText}>
-          Computer Science management career.
+          {computerScienceText}
         </p>
 
         <h4 style={styles.educationHeading}>MODERN REACT WITH REDUX</h4>
         <span style={styles.educationRole}>UDEMY.COM | APR 2016</span>
         <p style={styles.educationText}>
-          A React / Redux course from Udemy.com website.
+          {reactReduxCourse}
         </p>
 
         <h4 style={styles.educationHeading}>ADVANCED REACT AND REDUX</h4>
         <span style={styles.educationRole}>UDEMY.COM | APR 2016</span>
         <p style={styles.educationText}>
-          An advanced React / Redux course from Udemy.com website.
+          {advancedReactReduxCourse}
         </p>
 
         <h4 style={styles.educationHeading}>THE COMPLETE REACT WEB APP DEVELOPER COURSE</h4>
         <span style={styles.educationRole}>UDEMY.COM | APR 2016</span>
         <p style={styles.educationText}>
-          A React / Redux and its ecosystem course from Udemy.com website.
+          {completeReactCourse}
         </p>
 
         <h4 style={styles.educationHeading}>BUILD APPS WITH REACT NATIVE</h4>
-        <span style={styles.educationRole}>UDEMY.COM | COURSING</span>
+        <span style={styles.educationRole}>UDEMY.COM | {coursing}</span>
         <p style={styles.educationText}>
-          A React Native course from Udemy.com
+          {reactNativeCourse}
         </p>
       </div>
     );
   }
 }
 
-export default EducationTitle;
+const mapStateToProps = state => ({
+  lang: state.lang
+});
+
+export default connect(mapStateToProps)(EducationTitle);

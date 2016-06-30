@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Divider from 'material-ui/Divider';
 
 const styles = {
@@ -24,16 +25,13 @@ const styles = {
 
 class Profile extends Component {
   render() {
+    const {profileHeading, profileText} = this.props.lang.resume;
     return (
       <div style={styles.profile} className='profile'>
-        <h3 style={styles.profileHeading}>PROFILE</h3>
+        <h3 style={styles.profileHeading}>{profileHeading}</h3>
         <div style={styles.profileTextContent}>
           <p style={styles.profileText}>
-            Since last 4 years, I've been coding just JavaScript, and always have been
-            up to date on its new features, learning both with free resources and paid courses.<br />
-            Lately I've been focused on frontend development with ReactJS, although
-            I always build my own backend with NodeJS/ExpressJS and MongoDB.
-            I like to follow the best practices and the advices of the best JavaScript programmers of the world.
+            {profileText}
           </p>
           <Divider />
         </div>
@@ -42,4 +40,8 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+const mapStateToProps = (state) => ({
+  lang: state.lang
+});
+
+export default connect(mapStateToProps)(Profile);

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Divider from 'material-ui/Divider';
 import Chip from 'material-ui/Chip';
 
@@ -40,9 +41,10 @@ class Skills extends Component {
   }
 
   render() {
+    const {skillsHeading} = this.props.lang.skills;
     return (
       <div style={styles.skills} className='skills'>
-        <h3 style={styles.skillsHeading}>SKILLS</h3>
+        <h3 style={styles.skillsHeading}>{skillsHeading}</h3>
         <div style={styles.skillsTextContent}>
           {skillsData.map(this.renderChips)}
           <Divider />
@@ -52,4 +54,8 @@ class Skills extends Component {
   }
 }
 
-export default Skills;
+const mapStateToProps = state => ({
+  lang: state.lang
+});
+
+export default connect(mapStateToProps)(Skills);
